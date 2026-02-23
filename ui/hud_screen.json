@@ -1,0 +1,79 @@
+/**
+// © 2026 ashura_temps,    All Rights Reserved.
+//
+// This code is custom-made. You are allowed to use it **only as-is**, inside the game.
+// Do not modify, extract, reuse, or share any part of this UI including .json and .atemp files,
+// layout structure, or design.
+//
+// Not allowed:
+//   - Editing the UI (even for private/personal use)
+//   - Using parts of the code or layout in your own pack
+//   - Reuploading, redistributing, or hosting these files elsewhere
+//.
+*/
+
+{
+  "centered_gui_elements_at_bottom_middle": { "offset": [0, -3] },
+  "hotbar_chooser": {
+    "size": [184, 22],
+    "controls": []
+  },
+  "hotbar_renderer": {"ignored": true},
+  "root_panel": {
+    // adding to root to try and get around the deeply nested hud controls
+    "modifications": [
+      {
+        "array_name": "controls",
+        "operation": "insert_front",
+        "value": [
+          {
+            "custom_hotbar": {
+              "type": "stack_panel", // do the hotbar like this to bypass the vanilla grid placeing splits in the sprites
+              "orientation": "horizontal",
+              "size": [184, 26],
+              "offset": [0, -2],
+              "anchor_from": "bottom_middle",
+              "anchor_to": "bottom_middle",
+              "$hotbar_collection_name|default": "hotbar_items",
+              "collection_name": "$hotbar_collection_name",
+              "$is_end_cap|default": false,
+              "controls": [
+                {
+                  "start_cap@custom_hotbars.section_template": {
+                    "uv": [0, 0],
+                    "$is_end_cap": true,
+                    "uv_size": [2, 26],
+                    "size": [2, 26]
+                  }
+                },
+                { "0@custom_hotbars.section_0": { "collection_index": 0 } },
+                { "1@custom_hotbars.section_1": { "collection_index": 1 } },
+                { "2@custom_hotbars.section_2": { "collection_index": 2 } },
+                { "3@custom_hotbars.section_3": { "collection_index": 3 } },
+                { "4@custom_hotbars.section_4": { "collection_index": 4 } },
+                { "5@custom_hotbars.section_5": { "collection_index": 5 } },
+                { "6@custom_hotbars.section_6": { "collection_index": 6 } },
+                { "7@custom_hotbars.section_7": { "collection_index": 7 } },
+                { "8@custom_hotbars.section_8": { "collection_index": 8 } },
+                {
+                  "end_cap@custom_hotbars.section_template": {
+                    "uv": [182, 0],
+                    "$is_end_cap": true,
+                    "uv_size": [2, 26],
+                    "size": [2, 26]
+                  }
+                }
+              ],
+              "bindings": [
+                {
+                  "binding_name": "(not #is_spectator_mode)",
+                  "binding_name_override": "#visible"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
